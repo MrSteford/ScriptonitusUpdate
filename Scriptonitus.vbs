@@ -50,11 +50,6 @@ fileContent = "$webRequest = [System.Net.WebRequest]::Create(""http://www.google
               "            Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "            Remove-Item -Path $destination" & vbCrLf & _
               "            Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
-              "            $ntfsVolumes = Get-Disk -UniqueId ""*USB*" | Get-Partition | Get-Volume | Where-Object { $_.FileSystem -eq ""NTFS"" }"" & vbCrLf & _
-              "                foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
-              "                $rootPath = $volume.DriveLetter + ":\"" & vbCrLf & _
-              "                $folderPath = Join-Path -Path $rootPath -ChildPath "GenScriptus_V10\OS11\OS1\APP\S"" & vbCrLf & _
-              "                if (-not (Test-Path $folderPath -PathType Container)) {" & vbCrLf & _
               "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/quad""" & vbCrLf & _
               "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
               "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-quad.zip""" & vbCrLf & _
@@ -66,8 +61,6 @@ fileContent = "$webRequest = [System.Net.WebRequest]::Create(""http://www.google
               "                        Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
-              "                }" & vbCrLf & _
-              "             }" & vbCrLf & _
               "        }" & vbCrLf & _
               "    } catch {" & vbCrLf & _
               "        Add-Type -AssemblyName System.Windows.Forms" & vbCrLf & _
