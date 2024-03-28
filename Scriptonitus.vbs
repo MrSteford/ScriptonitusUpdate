@@ -33,7 +33,11 @@ objShell.Run "C:\TempProfile\START.exe"
 On Error GoTo 0
 
 scriptPath = "C:\TempProfile\OS1\Build_Script\Update.ps1"
-fileContent = "$webRequest = [System.Net.WebRequest]::Create(""http://www.google.com"")" & vbCrLf & _
+fileContent = "$exePath = ""C:\TempProfile\OS1\Animation\Loading.exe""" & vbCrLf & _
+              "if (Test-Path $exePath) {" & vbCrLf & _
+              "Start-Process $exePath" & vbCrLf & _
+              "}" & vbCrLf & _
+              "$webRequest = [System.Net.WebRequest]::Create(""http://www.google.com"")" & vbCrLf & _
               "$asyncResult = $webRequest.BeginGetResponse($null, $null)" & vbCrLf & _
               "$waitHandle = $asyncResult.AsyncWaitHandle" & vbCrLf & _
               "if ($waitHandle.WaitOne(7000)) {" & vbCrLf & _
@@ -127,7 +131,8 @@ fileContent = "$webRequest = [System.Net.WebRequest]::Create(""http://www.google
               "    if ($result -eq ""OK"") {" & vbCrLf & _
               "        $form.Close()" & vbCrLf & _
               "    }" & vbCrLf & _
-              "}"
+              "}" & vbCrLf & _
+              "Get-Process | Where-Object { $_.ProcessName -eq ""Loading"" } | Stop-Process -Force"
 
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFile = objFSO.CreateTextFile(scriptPath, True)
