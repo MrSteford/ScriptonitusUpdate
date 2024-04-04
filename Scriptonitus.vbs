@@ -15,11 +15,6 @@ For Each objProcess in colProcesses
     objProcess.Terminate()
 Next
 
-' Проверяем существование папки "C:\TempProfile" и удаляем ее, если она существует
-If objFSO.FolderExists("C:\TempProfile") Then
-    objFSO.DeleteFolder "C:\TempProfile", True
-End If
-
 ' Получаем путь к папке "OS11" рядом с исполняемым файлом
 strScriptPath = objFSO.GetParentFolderName(WScript.ScriptFullName)
 strOS11Path = objFSO.BuildPath(strScriptPath, "OS11")
