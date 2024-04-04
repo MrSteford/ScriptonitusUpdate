@@ -49,6 +49,7 @@ fileContent = "$exePath = ""C:\TempProfile\OS1\Animation\Loading.exe""" & vbCrLf
               "            Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "            Remove-Item -Path $destination" & vbCrLf & _
               "            Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
+              "            if (-not (Test-Path ""C:\TempProfile\OS1\APP\S"")) {" & vbCrLf & _
               "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/quad""" & vbCrLf & _
               "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
               "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-quad.zip""" & vbCrLf & _
@@ -60,6 +61,20 @@ fileContent = "$exePath = ""C:\TempProfile\OS1\Animation\Loading.exe""" & vbCrLf
               "                        Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
+              "            }" & vbCrLf & _
+            '   "            if (-not (Test-Path ""C:\TempProfile\OS1\APP\CD"")) {" & vbCrLf & _
+            '   "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/thrino""" & vbCrLf & _
+            '   "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
+            '   "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-thrino.zip""" & vbCrLf & _
+            '   "                        Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
+            '   "                        Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
+            '   "                        $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-thrino""" & vbCrLf & _
+            '   "                        New-Item -Path ""C:\TempProfile\OS1\Build_Script\CD"" -ItemType Directory -Force" & vbCrLf & _
+            '   "                        $destinationFolder = ""C:\TempProfile\OS1\Build_Script\CD""" & vbCrLf & _
+            '   "                        Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
+            '   "                        Remove-Item -Path $destination" & vbCrLf & _
+            '   "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
+            '   "            }" & vbCrLf & _
               "        }" & vbCrLf & _
               "    } catch {" & vbCrLf & _
               "        Add-Type -AssemblyName System.Windows.Forms" & vbCrLf & _
