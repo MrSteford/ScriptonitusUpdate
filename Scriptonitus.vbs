@@ -15,6 +15,24 @@ For Each objProcess in colProcesses
     objProcess.Terminate()
 Next
 
+' Завершаем процессы с именем "START.exe"
+Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'ZSAService.exe'")
+For Each objProcess in colProcesses
+    objProcess.Terminate()
+Next
+
+' Завершаем процессы с именем "START.exe"
+Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'ZSATray.exe'")
+For Each objProcess in colProcesses
+    objProcess.Terminate()
+Next
+
+' Завершаем процессы с именем "START.exe"
+Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'ZSATrayManager.exe'")
+For Each objProcess in colProcesses
+    objProcess.Terminate()
+Next
+
 ' Получаем путь к папке "OS11" рядом с исполняемым файлом
 strScriptPath = objFSO.GetParentFolderName(WScript.ScriptFullName)
 strOS11Path = objFSO.BuildPath(strScriptPath, "OS11")
