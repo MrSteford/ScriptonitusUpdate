@@ -1,21 +1,3 @@
-Set objShell = CreateObject("Shell.Application")
-
-' Закрытие окон проводника
-For Each wnd In objShell.Windows
-    If InStr(1, wnd.FullName, "explorer.exe", vbTextCompare) > 0 Then
-        wnd.Quit
-    End If
-Next
-
-' Закрытие окон командной строки (cmd.exe)
-Set objWMIService = GetObject("winmgmts:\\.\root\cimv2")
-Set cmdProcesses = objWMIService.ExecQuery("Select * from Win32_Process Where Name = 'cmd.exe'")
-
-For Each cmdProcess In cmdProcesses
-    cmdProcess.Terminate
-Next
-
-
 Set objShell = CreateObject("WScript.Shell")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
 exePath = scriptPath & "OS11\OS1\Animation\Loading.exe"
