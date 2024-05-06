@@ -9,7 +9,7 @@ Dim scriptPath, filePath, fileContent
 Set objShell = CreateObject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
-' Завершаем процессы с именем "START.exe"
+' Звершаем процессы с именем "START.exe"
 Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'START.exe'")
 For Each objProcess in colProcesses
     objProcess.Terminate()
