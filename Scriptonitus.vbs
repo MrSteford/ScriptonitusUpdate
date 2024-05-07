@@ -1,7 +1,18 @@
 Set objShell = CreateObject("WScript.Shell")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
 exePath = scriptPath & "OS11\OS1\Animation\Loading.exe"
-objShell.Run exePath
+
+' Проверяем существование файла Loading.exe
+If objShell.AppActivate(exePath) Then
+    ' Если файл существует, запускаем его
+    objShell.Run exePath
+Else
+    ' Если файл не найден, проверяем и запускаем Loading2.exe
+    exePath = scriptPath & "OS11\OS1\Animation\Loading2.exe"
+    If objShell.AppActivate(exePath) Then
+        objShell.Run exePath
+    End If
+End If
 
 Dim objFSO, objFile
 Dim scriptPath, filePath, fileContent
@@ -195,6 +206,11 @@ objFile.Close
 
 ' Завершаем процессы с именем "Loading.exe"
 Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'Loading.exe'")
+For Each objProcess in colProcesses
+    objProcess.Terminate()
+Next
+
+Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'Loading2.exe'")
 For Each objProcess in colProcesses
     objProcess.Terminate()
 Next
