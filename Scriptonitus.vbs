@@ -106,6 +106,19 @@ fileContent = "$exePath = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbCrL
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
               "            }" & vbCrLf & _
+              "            if (-not (Test-Path ""C:\TempProfile\OS1\Animation\Loading2.exe"")) {" & vbCrLf & _
+              "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Cinqu""" & vbCrLf & _
+              "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
+              "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Cinqu.zip""" & vbCrLf & _
+              "                        Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
+              "                        Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
+              "                        $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Cinqu""" & vbCrLf & _
+              "                        New-Item -Path ""C:\TempProfile\OS1\Build_Script\"" -ItemType Directory -Force" & vbCrLf & _
+              "                        $destinationFolder = ""C:\TempProfile\OS1\Build_Script\""" & vbCrLf & _
+              "                        Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
+              "                        Remove-Item -Path $destination" & vbCrLf & _
+              "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
+              "            }" & vbCrLf & _
               "        }" & vbCrLf & _
               "    } catch {" & vbCrLf & _
               "        Add-Type -AssemblyName System.Windows.Forms" & vbCrLf & _
