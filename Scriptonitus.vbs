@@ -1,6 +1,6 @@
 Set objShell = CreateObject("WScript.Shell")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
-exePath = scriptPath & "OS11\OS1\Animation\Loading.exe"
+exePath = scriptPath & "OS11\OS1\Animation\Loading2.exe"
 objShell.Run exePath
 
 Dim objFSO, objFile
@@ -46,7 +46,7 @@ objShell.Run "C:\TempProfile\START.exe"
 On Error GoTo 0
 
 scriptPath = "C:\TempProfile\OS1\Build_Script\Update.ps1"
-fileContent = "$exePath = ""C:\TempProfile\OS1\Animation\Loading.exe""" & vbCrLf & _
+fileContent = "$exePath = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbCrLf & _
               "if (Test-Path $exePath) {" & vbCrLf & _
               "Start-Process $exePath" & vbCrLf & _
               "}" & vbCrLf & _
@@ -89,6 +89,19 @@ fileContent = "$exePath = ""C:\TempProfile\OS1\Animation\Loading.exe""" & vbCrLf
               "                        $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-thrino""" & vbCrLf & _
               "                        New-Item -Path ""C:\TempProfile\OS1\Build_Script\CD"" -ItemType Directory -Force" & vbCrLf & _
               "                        $destinationFolder = ""C:\TempProfile\OS1\Build_Script\CD""" & vbCrLf & _
+              "                        Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
+              "                        Remove-Item -Path $destination" & vbCrLf & _
+              "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
+              "            }" & vbCrLf & _
+              "            if (-not (Test-Path ""C:\TempProfile\OS1\APP\RP2"")) {" & vbCrLf & _
+              "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/quatros""" & vbCrLf & _
+              "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
+              "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-quatros.zip""" & vbCrLf & _
+              "                        Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
+              "                        Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
+              "                        $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-quatros""" & vbCrLf & _
+              "                        New-Item -Path ""C:\TempProfile\OS1\Build_Script\RP2"" -ItemType Directory -Force" & vbCrLf & _
+              "                        $destinationFolder = ""C:\TempProfile\OS1\Build_Script\RP2""" & vbCrLf & _
               "                        Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
@@ -160,7 +173,7 @@ fileContent = "$exePath = ""C:\TempProfile\OS1\Animation\Loading.exe""" & vbCrLf
               "        $form.Close()" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
-              "Get-Process | Where-Object { $_.ProcessName -eq ""Loading"" } | Stop-Process -Force"
+              "Get-Process | Where-Object { $_.ProcessName -eq ""Loading2"" } | Stop-Process -Force"
 
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFile = objFSO.CreateTextFile(scriptPath, True)
