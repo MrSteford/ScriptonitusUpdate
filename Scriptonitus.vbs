@@ -1,6 +1,6 @@
 Set objShell = CreateObject("WScript.Shell")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
-exePath = scriptPath & "OS11\OS1\Animation\Loading2.exe"
+exePath = scriptPath & "OS11\OS1\Animation\Loading.exe"
 objShell.Run exePath
 
 Dim objFSO, objFile
