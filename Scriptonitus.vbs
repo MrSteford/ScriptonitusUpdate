@@ -301,6 +301,7 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "        #Write-Output ""Folder S removed from path: $nestedFolderPath""" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
+
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\RP2""" & vbCrLf & _
@@ -313,12 +314,38 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "    $sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\RP2""" & vbCrLf & _
               "    if (Test-Path $sourceFolderPath -PathType Container) {" & vbCrLf & _
               "        if (-not (Test-Path $folderPath)) {" & vbCrLf & _
-              "            $destinationFolderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\""" & vbCrLf & _
+              "            $destinationFolderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\RP2""" & vbCrLf & _
               "            Copy-Item -Path $sourceFolderPath -Destination $destinationFolderPath -Recurse -Force" & vbCrLf & _
               "        }" & vbCrLf & _
-              "        Copy-Item -Path $sourceFolderPath -Destination $additionalFolderPath -Recurse -Force" & vbCrLf & _
+              "        " & vbCrLf & _
+              "        # Copy only files from the source folder to the additional folder path" & vbCrLf & _
+              "        $files = Get-ChildItem -Path $sourceFolderPath -File" & vbCrLf & _
+              "        foreach ($file in $files) {" & vbCrLf & _
+              "            $destinationFile = Join-Path -Path $additionalFolderPath -ChildPath $file.Name" & vbCrLf & _
+              "            Copy-Item -Path $file.FullName -Destination $destinationFile -Force" & vbCrLf & _
+              "        }" & vbCrLf & _
               "    }" & vbCrLf & _
-              "}" & vbCrLf & _
+              "}" & vbCrLf
+
+            '   "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
+            '   "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
+            '   "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\RP2""" & vbCrLf & _
+            '   "    $additionalFolderPath = ""C:\TempProfile\OS1\App\RP2""" & vbCrLf & _
+            '   "    " & vbCrLf & _
+            '   "    if (-not (Test-Path $additionalFolderPath)) {" & vbCrLf & _
+            '   "        New-Item -ItemType Directory -Path $additionalFolderPath" & vbCrLf & _
+            '   "    }" & vbCrLf & _
+            '   "    " & vbCrLf & _
+            '   "    $sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\RP2""" & vbCrLf & _
+            '   "    if (Test-Path $sourceFolderPath -PathType Container) {" & vbCrLf & _
+            '   "        if (-not (Test-Path $folderPath)) {" & vbCrLf & _
+            '   "            $destinationFolderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\""" & vbCrLf & _
+            '   "            Copy-Item -Path $sourceFolderPath -Destination $destinationFolderPath -Recurse -Force" & vbCrLf & _
+            '   "        }" & vbCrLf & _
+            '   "        Copy-Item -Path $sourceFolderPath -Destination $additionalFolderPath -Recurse -Force" & vbCrLf & _
+            '   "    }" & vbCrLf & _
+            '   "}" & vbCrLf & _
+
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\Animation""" & vbCrLf & _
