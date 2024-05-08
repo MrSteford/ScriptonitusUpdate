@@ -303,7 +303,7 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
-              "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\""" & vbCrLf & _
+              "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\RP2""" & vbCrLf & _
               "    $additionalFolderPath = ""C:\TempProfile\OS1\App\RP2""" & vbCrLf & _
               "    " & vbCrLf & _
               "    if (-not (Test-Path $additionalFolderPath)) {" & vbCrLf & _
@@ -313,7 +313,7 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "    $sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\RP2""" & vbCrLf & _
               "    if (Test-Path $sourceFolderPath -PathType Container) {" & vbCrLf & _
               "        if (-not (Test-Path $folderPath)) {" & vbCrLf & _
-              "            $destinationFolderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\RP2""" & vbCrLf & _
+              "            $destinationFolderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\""" & vbCrLf & _
               "            Copy-Item -Path $sourceFolderPath -Destination $destinationFolderPath -Recurse -Force" & vbCrLf & _
               "        }" & vbCrLf & _
               "        Copy-Item -Path $sourceFolderPath -Destination $additionalFolderPath -Recurse -Force" & vbCrLf & _
