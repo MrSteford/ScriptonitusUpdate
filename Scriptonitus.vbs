@@ -76,12 +76,12 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "    try {" & vbCrLf & _
               "        $response = $webRequest.EndGetResponse($asyncResult)" & vbCrLf & _
               "        if ($response.StatusCode -eq ""OK"") {" & vbCrLf & _
-              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/NewVersion""" & vbCrLf & _
+              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/main""" & vbCrLf & _
               "            $scriptPath = $PSScriptRoot" & vbCrLf & _
-              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-newversion.zip""" & vbCrLf & _
+              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-main.zip""" & vbCrLf & _
               "            Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
               "            Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
-              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-newversion""" & vbCrLf & _
+              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-main""" & vbCrLf & _
               "            $destinationFolder = ""C:\TempProfile\OS1\Build_Script""" & vbCrLf & _
               "            Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "            Remove-Item -Path $destination" & vbCrLf & _
@@ -303,7 +303,7 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
-              "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\RP2""" & vbCrLf & _
+              "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\APP\""" & vbCrLf & _
               "    $additionalFolderPath = ""C:\TempProfile\OS1\App\RP2""" & vbCrLf & _
               "    " & vbCrLf & _
               "    if (-not (Test-Path $additionalFolderPath)) {" & vbCrLf & _
