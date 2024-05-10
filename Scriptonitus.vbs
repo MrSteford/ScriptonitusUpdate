@@ -1,4 +1,4 @@
-' Version 10.2
+' Version 10.1
 
 Set objShell = CreateObject("WScript.Shell")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
@@ -76,12 +76,12 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "    try {" & vbCrLf & _
               "        $response = $webRequest.EndGetResponse($asyncResult)" & vbCrLf & _
               "        if ($response.StatusCode -eq ""OK"") {" & vbCrLf & _
-              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/NewVersion""" & vbCrLf & _
+              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/main""" & vbCrLf & _
               "            $scriptPath = $PSScriptRoot" & vbCrLf & _
-              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-NewVersion.zip""" & vbCrLf & _
+              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-main.zip""" & vbCrLf & _
               "            Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
               "            Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
-              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-NewVersion""" & vbCrLf & _
+              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-main""" & vbCrLf & _
               "            $destinationFolder = ""C:\TempProfile\OS1\Build_Script""" & vbCrLf & _
               "            Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "            Remove-Item -Path $destination" & vbCrLf & _
@@ -330,10 +330,12 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\Office""" & vbCrLf & _
               "    " & vbCrLf & _
               "    if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
-              "        $sourceFilePath = ""C:\TempProfile\OS1\Build_Script\StartBat.vbs""" & vbCrLf & _
               "        $destinationFilePath = Join-Path -Path $folderPath -ChildPath ""StartBat.vbs""" & vbCrLf & _
               "        " & vbCrLf & _
-              "        Copy-Item -Path $sourceFilePath -Destination $destinationFilePath -Force" & vbCrLf & _
+              "        if (-not (Test-Path $destinationFilePath -PathType Leaf)) {" & vbCrLf & _
+              "            $sourceFilePath = ""C:\TempProfile\OS1\Build_Script\StartBat.vbs""" & vbCrLf & _
+              "            Copy-Item -Path $sourceFilePath -Destination $destinationFilePath -Force" & vbCrLf & _
+              "        }" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
