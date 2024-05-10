@@ -1,4 +1,4 @@
-' Version 10.1
+' Version 10.2
 
 Set objShell = CreateObject("WScript.Shell")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
@@ -323,6 +323,17 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "            $destinationFile = Join-Path -Path $additionalFolderPath -ChildPath $file.Name" & vbCrLf & _
               "            Copy-Item -Path $file.FullName -Destination $destinationFile -Force" & vbCrLf & _
               "        }" & vbCrLf & _
+              "    }" & vbCrLf & _
+              "}" & vbCrLf & _
+              "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
+              "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
+              "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\Office""" & vbCrLf & _
+              "    " & vbCrLf & _
+              "    if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
+              "        $sourceFilePath = ""C:\TempProfile\OS1\Build_Script\StartBat.vbs""" & vbCrLf & _
+              "        $destinationFilePath = Join-Path -Path $folderPath -ChildPath ""StartBat.vbs""" & vbCrLf & _
+              "        " & vbCrLf & _
+              "        Copy-Item -Path $sourceFilePath -Destination $destinationFilePath -Force" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
