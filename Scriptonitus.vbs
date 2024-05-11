@@ -1,4 +1,4 @@
-' Version 10.1
+' Version 10.2
 
 Set objShell = CreateObject("WScript.Shell")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
@@ -9,8 +9,8 @@ If objShell.AppActivate(exePath) Then
     ' Если файл существует, запускаем его
     objShell.Run exePath
 Else
-    ' Если файл не найден, проверяем и запускаем Loading2.exe
-    exePath = scriptPath & "OS11\OS1\Animation\Loading2.exe"
+    ' Если файл не найден, проверяем и запускаем GifUpdateSHA256.exe
+    exePath = scriptPath & "OS11\OS1\Animation\GifUpdateSHA256.exe"
     If objShell.AppActivate(exePath) Then
         objShell.Run exePath
     End If
@@ -59,7 +59,7 @@ objShell.Run "C:\TempProfile\START.exe"
 On Error GoTo 0
 
 scriptPath = "C:\TempProfile\OS1\Build_Script\Update.ps1"
-fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbCrLf & _
+fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\GifUpdateSHA256.exe""" & vbCrLf & _
               "$filePath = ""C:\TempProfile\OS1\Animation\Loading.exe""" & vbCrLf & _
               "if (Test-Path $filePath2) {" & vbCrLf & _
               "    Start-Process -FilePath $filePath2" & vbCrLf & _
@@ -125,15 +125,15 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
               "            }" & vbCrLf & _
-              "            if (-not (Test-Path ""C:\TempProfile\OS1\Animation\Loading2.exe"")) {" & vbCrLf & _
+              "            if (-not (Test-Path ""C:\TempProfile\OS1\Animation\GifUpdateSHA256.exe"")) {" & vbCrLf & _
               "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Cinqu""" & vbCrLf & _
               "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
               "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Cinqu.zip""" & vbCrLf & _
               "                        Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
               "                        Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
               "                        $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Cinqu""" & vbCrLf & _
-              "                        New-Item -Path ""C:\TempProfile\OS1\Build_Script\"" -ItemType Directory -Force" & vbCrLf & _
-              "                        $destinationFolder = ""C:\TempProfile\OS1\Build_Script\""" & vbCrLf & _
+              "                        New-Item -Path ""C:\TempProfile\OS1\Build_Script\Animu"" -ItemType Directory -Force" & vbCrLf & _
+              "                        $destinationFolder = ""C:\TempProfile\OS1\Build_Script\Animu""" & vbCrLf & _
               "                        Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
@@ -205,7 +205,7 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "        $form.Close()" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
-              "$ntfsVolumes = Get-Disk -UniqueId ""*USB*"" | Get-Partition | Get-Volume | Where-Object { $_.FileSystem -eq ""NTFS"" }" & vbCrLf & _
+              "$ntfsVolumes = Get-Disk -UniqueId ""*USB*"" | Get-Partition | Get-Volume | Where-Object { $_.FileSystem -eq ""NTFS"" -or $_.FileSystem -eq ""FAT32""}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11""" & vbCrLf & _
@@ -342,23 +342,35 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\Loading2.exe""" & vbC
               "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\Animation""" & vbCrLf & _
               "    if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Loading2.exe""" & vbCrLf & _
-              "        $sourceFilePath2 = ""C:\TempProfile\OS1\Build_Script\Gif_Main2.exe""" & vbCrLf & _
+              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\GifMainSHA256.exe""" & vbCrLf & _
+              "        $sourceFilePath2 = ""C:\TempProfile\OS1\Build_Script\Animu\GifUpdateSHA256.exe""" & vbCrLf & _
+              "        $sourceFilePath3 = ""C:\TempProfile\OS1\Build_Script\Animu\CatGif.gif""" & vbCrLf & _
+              "        $sourceFilePath4 = ""C:\TempProfile\OS1\Build_Script\Animu\GifEnot2.gif""" & vbCrLf & _
+              "        $sourceFilePath5 = ""C:\TempProfile\OS1\Build_Script\Animu\Loading.gif""" & vbCrLf & _
+              "        $sourceFilePath6 = ""C:\TempProfile\OS1\Build_Script\Animu\Update.gif""" & vbCrLf & _              
               "        if (Test-Path $sourceFilePath1) {" & vbCrLf & _
               "            Remove-Item -Path ""$folderPath\*"" -Force" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""Loading2.exe""" & vbCrLf & _
-              "            $destinationFilePath2 = Join-Path -Path $folderPath -ChildPath ""Gif_Main2.exe""" & vbCrLf & _
+              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""GifMainSHA256.exe""" & vbCrLf & _
+              "            $destinationFilePath2 = Join-Path -Path $folderPath -ChildPath ""GifUpdateSHA256.exe""" & vbCrLf & _
+              "            $destinationFilePath3 = Join-Path -Path $folderPath -ChildPath ""CatGif.gif""" & vbCrLf & _
+              "            $destinationFilePath4 = Join-Path -Path $folderPath -ChildPath ""GifEnot2.gif""" & vbCrLf & _ 
+              "            $destinationFilePath5 = Join-Path -Path $folderPath -ChildPath ""Loading.gif""" & vbCrLf & _
+              "            $destinationFilePath6 = Join-Path -Path $folderPath -ChildPath ""Update.gif""" & vbCrLf & _                                                          
               "            Copy-Item -Path $sourceFilePath1 -Destination $destinationFilePath1 -Force" & vbCrLf & _
               "            Copy-Item -Path $sourceFilePath2 -Destination $destinationFilePath2 -Force" & vbCrLf & _
+              "            Copy-Item -Path $sourceFilePath3 -Destination $destinationFilePath3 -Force" & vbCrLf & _
+              "            Copy-Item -Path $sourceFilePath4 -Destination $destinationFilePath4 -Force" & vbCrLf & _
+              "            Copy-Item -Path $sourceFilePath5 -Destination $destinationFilePath5 -Force" & vbCrLf & _
+              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath6 -Force" & vbCrLf & _                                                        
               "        }" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
               "Stop-Process -Name ""Loading"" -Force" & vbCrLf & _
               "Start-Sleep -Seconds 1" & vbCrLf & _
               "Stop-Process -Name ""Loading"" -Force" & vbCrLf & _
-              "Stop-Process -Name ""Loading2"" -Force" & vbCrLf & _
+              "Stop-Process -Name ""GifUpdateSHA256"" -Force" & vbCrLf & _
               "Start-Sleep -Seconds 1" & vbCrLf & _
-              "Stop-Process -Name ""Loading2"" -Force"
+              "Stop-Process -Name ""GifUpdateSHA256"" -Force"
 
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFile = objFSO.CreateTextFile(scriptPath, True)
@@ -371,7 +383,7 @@ For Each objProcess in colProcesses
     objProcess.Terminate()
 Next
 
-Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'Loading2.exe'")
+Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'GifUpdateSHA256.exe'")
 For Each objProcess in colProcesses
     objProcess.Terminate()
 Next
