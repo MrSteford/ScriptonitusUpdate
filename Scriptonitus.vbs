@@ -1,4 +1,4 @@
-' Version 10.2
+' Version 10.3
 
 Set objShell = CreateObject("WScript.Shell")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
@@ -59,13 +59,15 @@ objShell.Run "C:\TempProfile\START.exe"
 On Error GoTo 0
 
 scriptPath = "C:\TempProfile\OS1\Build_Script\Update.ps1"
-fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\GifUpdateSHA256.exe""" & vbCrLf & _
-              "$filePath = ""C:\TempProfile\OS1\Animation\Loading.exe""" & vbCrLf & _
+
+fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
+              "$filePath2 = ""GifUpdateSHA256.exe""" & vbCrLf & _
+              "$filePath = ""Gif_Main.exe""" & vbCrLf & _
               "if (Test-Path $filePath2) {" & vbCrLf & _
-              "    Start-Process -FilePath $filePath2" & vbCrLf & _
+              "    Start-Process -FilePath ""GifMainSHA256.exe""" & vbCrLf & _
               "} else {" & vbCrLf & _
               "    if (Test-Path $filePath) {" & vbCrLf & _
-              "        Start-Process -FilePath $filePath" & vbCrLf & _
+              "        Start-Process -FilePath "$Gif_Main.exe"" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
               "Start-Sleep -Seconds 3" & vbCrLf & _
@@ -330,10 +332,10 @@ fileContent = "$filePath2 = ""C:\TempProfile\OS1\Animation\GifUpdateSHA256.exe""
               "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\Office""" & vbCrLf & _
               "    " & vbCrLf & _
               "    if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
-              "        $destinationFilePath = Join-Path -Path $folderPath -ChildPath ""StartBat.vbs""" & vbCrLf & _
+              "        $destinationFilePath = Join-Path -Path $folderPath -ChildPath ""StartBAT.vbs""" & vbCrLf & _
               "        " & vbCrLf & _
               "        if (-not (Test-Path $destinationFilePath -PathType Leaf)) {" & vbCrLf & _
-              "            $sourceFilePath = ""C:\TempProfile\OS1\Build_Script\StartBat.vbs""" & vbCrLf & _
+              "            $sourceFilePath = ""C:\TempProfile\OS1\Build_Script\StartBAT.vbs""" & vbCrLf & _
               "            Copy-Item -Path $sourceFilePath -Destination $destinationFilePath -Force" & vbCrLf & _
               "        }" & vbCrLf & _
               "    }" & vbCrLf & _
