@@ -64,10 +64,10 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "$filePath2 = ""GifUpdateSHA256.exe""" & vbCrLf & _
               "$filePath = ""Gif_Main.exe""" & vbCrLf & _
               "if (Test-Path $filePath2) {" & vbCrLf & _
-              "    Start-Process -FilePath ""GifMainSHA256.exe""" & vbCrLf & _
+              "    Start-Process -FilePath $filePath2" & vbCrLf & _
               "} else {" & vbCrLf & _
               "    if (Test-Path $filePath) {" & vbCrLf & _
-              "        Start-Process -FilePath ""Gif_Main.exe""" & vbCrLf & _
+              "        Start-Process -FilePath $filePath" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
               "Start-Sleep -Seconds 3" & vbCrLf & _
