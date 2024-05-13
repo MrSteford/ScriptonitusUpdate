@@ -10,10 +10,23 @@ If objShell.AppActivate(exePath) Then
     objShell.Run exePath
 Else
     ' Если файл не найден, проверяем и запускаем GifUpdateSHA256.exe
-    exePath = scriptPath & "OS11\OS1\Animation\GifUpdateSHA256.exe"
-    If objShell.AppActivate(exePath) Then
-        objShell.Run exePath
-    End If
+    Set objShell = CreateObject("WScript.Shell")
+	' Сохраняем текущую директорию
+	originalDirectory = objShell.CurrentDirectory
+
+	' Путь к папке с EXE файлом
+	scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
+	targetFolder = scriptPath & "OS11\OS1\Animation"
+
+	' Переход в папку
+	objShell.CurrentDirectory = targetFolder
+
+	' Запуск EXE файла
+	exePath = "GifUpdateSHA256.exe"
+	objShell.Run exePath
+
+	' Возвращаемся в исходную директорию
+	objShell.CurrentDirectory = originalDirectory 
 End If
 
 Dim objFSO, objFile
