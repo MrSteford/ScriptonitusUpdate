@@ -1,16 +1,17 @@
 ' Version 10.3
 
 Set objShell = CreateObject("WScript.Shell")
+Set objFSO = CreateObject("Scripting.FileSystemObject")  ' <--- Добавили создание objFSO
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
 exePath = scriptPath & "OS11\OS1\Animation\Loading.exe"
 
 ' Проверяем существование файла Loading.exe
-If objShell.AppActivate(exePath) Then
+If objFSO.FileExists(exePath) Then
     ' Если файл существует, запускаем его
     objShell.Run exePath
 Else
     ' Если файл не найден, проверяем и запускаем GifUpdateSHA256.exe
-    Set objShell = CreateObject("WScript.Shell")
+    Set objFSO = CreateObject("Scripting.FileSystemObject")
 	' Сохраняем текущую директорию
 	originalDirectory = objShell.CurrentDirectory
 
@@ -23,7 +24,14 @@ Else
 
 	' Запуск EXE файла
 	exePath = "GifUpdateSHA256.exe"
-	objShell.Run exePath
+
+	' Проверяем существование GifUpdateSHA256.exe 
+	If objFSO.FileExists(exePath) Then
+		objShell.Run exePath
+	Else
+		' Выводим сообщение об ошибке, если файл не найден
+		MsgBox "Ошибка: Файл GifUpdateSHA256.exe не найден."
+	End If
 
 	' Возвращаемся в исходную директорию
 	objShell.CurrentDirectory = originalDirectory 
