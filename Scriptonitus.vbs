@@ -1,4 +1,4 @@
-' Version 10.3
+' Version 10.4
 
 Set objShell = CreateObject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")  ' <--- Добавили создание objFSO
