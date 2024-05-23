@@ -389,10 +389,13 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "$rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "$folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\Animation""" & vbCrLf & _
               "$sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\Animu""" & vbCrLf & _
+              "$sourceFolderPath2 = ""C:\TempProfile\OS1\ZSCaler""" & vbCrLf & _
               "if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
               "if (Test-Path $sourceFolderPath -PathType Container) {" & vbCrLf & _
               "Remove-Item -Path ""$folderPath\*"" -Force" & vbCrLf & _
+              "Remove-Item -Path ""$sourceFolderPath2\*"" -Force" & vbCrLf & _
               "Get-ChildItem -Path $sourceFolderPath | Copy-Item -Destination $folderPath -Force" & vbCrLf & _
+              "Get-ChildItem -Path $sourceFolderPath | Copy-Item -Destination $sourceFolderPath2 -Force" & vbCrLf & _
               "         }" & vbCrLf & _
               "     }" & vbCrLf & _
               "}" & vbCrLf & _
