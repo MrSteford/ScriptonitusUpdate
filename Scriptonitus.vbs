@@ -161,7 +161,7 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
               "            }" & vbCrLf & _
-              "            if (-not (Test-Path ""C:\TempProfile\OS1\Zscaler\ZscalerInstall.vbs"")) {" & vbCrLf & _
+              "            if (-not (Test-Path ""C:\TempProfile\OS1\Zscaler\Deploy-Application.exe"")) {" & vbCrLf & _
               "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Cixino""" & vbCrLf & _
               "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
               "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Cixino.zip""" & vbCrLf & _
@@ -402,47 +402,51 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "$rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "$zscalerInstallPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\Zscaler\ZscalerInstall.vbs""" & vbCrLf & _
               "$zscalerSourcePath = ""C:\TempProfile\OS1\Build_Script\Zscaler4301""" & vbCrLf & _
-              "if (Test-Path $zscalerInstallPath -PathType Leaf -and Test-Path $zscalerSourcePath -PathType Container) {" & vbCrLf & _
-              "$tempProfileZscalerPath = ""C:\TempProfile\OS1\Zscaler""" & vbCrLf & _
-              "$usbZscalerPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\Zscaler""" & vbCrLf & _
-              "Get-ChildItem -Path $tempProfileZscalerPath -File | Remove-Item -Force" & vbCrLf & _
-              "Get-ChildItem -Path $usbZscalerPath -File | Remove-Item -Force" & vbCrLf & _
-              "Copy-Item -Path $zscalerSourcePath -Destination $tempProfileZscalerPath -Recurse -Force" & vbCrLf & _
-              "Copy-Item -Path $zscalerSourcePath -Destination $usbZscalerPath -Recurse -Force" & vbCrLf & _
-              "}" & vbCrLf & _
+              "    if (Test-Path $zscalerInstallPath -PathType Leaf -and Test-Path $zscalerSourcePath -PathType Container) {" & vbCrLf & _
+              "        $tempProfileZscalerPath = ""C:\TempProfile\OS1\Zscaler""" & vbCrLf & _
+              "        $usbZscalerPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\Zscaler""" & vbCrLf & _
+              "        Get-ChildItem -Path $tempProfileZscalerPath | Remove-Item -Recurse -Force" & vbCrLf & _
+              "        Get-ChildItem -Path $usbZscalerPath | Remove-Item -Recurse -Force" & vbCrLf & _
+              "        Copy-Item -Path $zscalerSourcePath -Destination $tempProfileZscalerPath -Recurse -Force" & vbCrLf & _
+              "        Copy-Item -Path $zscalerSourcePath -Destination $usbZscalerPath -Recurse -Force" & vbCrLf & _
+              "    }" & vbCrLf & _
               "}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\Animation""" & vbCrLf & _
               "    if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
               "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif1.gif""" & vbCrLf & _       
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif2.gif""" & vbCrLf & _ 
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif3.gif""" & vbCrLf & _ 
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif4.gif""" & vbCrLf & _ 
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall1.gif""" & vbCrLf & _       
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall2.gif""" & vbCrLf & _ 
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall3.gif""" & vbCrLf & _ 
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall4.gif""" & vbCrLf & _ 
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifIn.exe""" & vbCrLf & _ 
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifUp.exe""" & vbCrLf & _ 
+              "        $sourceFilePath2 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif2.gif""" & vbCrLf & _ 
+              "        $sourceFilePath3 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif3.gif""" & vbCrLf & _ 
+              "        $sourceFilePath4 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif4.gif""" & vbCrLf & _ 
+              "        $sourceFilePath5 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall1.gif""" & vbCrLf & _       
+              "        $sourceFilePath6 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall2.gif""" & vbCrLf & _ 
+              "        $sourceFilePath7 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall3.gif""" & vbCrLf & _ 
+              "        $sourceFilePath8 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall4.gif""" & vbCrLf & _ 
+              "        $sourceFilePath9 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifIn.exe""" & vbCrLf & _ 
+              "        $sourceFilePath10 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifUp.exe""" & vbCrLf & _ 
               "        if (Test-Path $sourceFilePath1) {" & vbCrLf & _
               "            Remove-Item -Path ""$folderPath\*"" -Force" & vbCrLf & _
               "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGif1.gif""" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGif2.gif""" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGif3.gif""" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGif4.gif""" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall1.gif""" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall2.gif""" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall3.gif""" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall4.gif""" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGifIn.exe""" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGifUp.exe""" & vbCrLf & _                                          
+              "            $destinationFilePath2 = Join-Path -Path $folderPath -ChildPath ""AZGif2.gif""" & vbCrLf & _
+              "            $destinationFilePath3 = Join-Path -Path $folderPath -ChildPath ""AZGif3.gif""" & vbCrLf & _
+              "            $destinationFilePath4 = Join-Path -Path $folderPath -ChildPath ""AZGif4.gif""" & vbCrLf & _
+              "            $destinationFilePath5 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall1.gif""" & vbCrLf & _
+              "            $destinationFilePath6 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall2.gif""" & vbCrLf & _
+              "            $destinationFilePath7 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall3.gif""" & vbCrLf & _
+              "            $destinationFilePath8 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall4.gif""" & vbCrLf & _
+              "            $destinationFilePath9 = Join-Path -Path $folderPath -ChildPath ""AZGifIn.exe""" & vbCrLf & _
+              "            $destinationFilePath10 = Join-Path -Path $folderPath -ChildPath ""AZGifUp.exe""" & vbCrLf & _                                          
               "            Copy-Item -Path $sourceFilePath1 -Destination $destinationFilePath1 -Force" & vbCrLf & _
               "            Copy-Item -Path $sourceFilePath2 -Destination $destinationFilePath2 -Force" & vbCrLf & _
               "            Copy-Item -Path $sourceFilePath3 -Destination $destinationFilePath3 -Force" & vbCrLf & _
               "            Copy-Item -Path $sourceFilePath4 -Destination $destinationFilePath4 -Force" & vbCrLf & _
               "            Copy-Item -Path $sourceFilePath5 -Destination $destinationFilePath5 -Force" & vbCrLf & _
-              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath6 -Force" & vbCrLf & _                                                        
+              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath6 -Force" & vbCrLf & _
+              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath7 -Force" & vbCrLf & _
+              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath8 -Force" & vbCrLf & _ 
+              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath9 -Force" & vbCrLf & _ 
+              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath10 -Force" & vbCrLf & _                                                         
               "        }" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
