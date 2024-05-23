@@ -400,16 +400,14 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "$rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
-              "$zscalerInstallPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\Zscaler\ZscalerInstall.vbs""" & vbCrLf & _
-              "$zscalerSourcePath = ""C:\TempProfile\OS1\Build_Script\Zscaler4301""" & vbCrLf & _
-              "    if (Test-Path $zscalerInstallPath -PathType Leaf -and Test-Path $zscalerSourcePath -PathType Container) {" & vbCrLf & _
-              "        $tempProfileZscalerPath = ""C:\TempProfile\OS1\Zscaler""" & vbCrLf & _
-              "        $usbZscalerPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\Zscaler""" & vbCrLf & _
-              "        Get-ChildItem -Path $tempProfileZscalerPath | Remove-Item -Recurse -Force" & vbCrLf & _
-              "        Get-ChildItem -Path $usbZscalerPath | Remove-Item -Recurse -Force" & vbCrLf & _
-              "        Copy-Item -Path $zscalerSourcePath -Destination $tempProfileZscalerPath -Recurse -Force" & vbCrLf & _
-              "        Copy-Item -Path $zscalerSourcePath -Destination $usbZscalerPath -Recurse -Force" & vbCrLf & _
-              "    }" & vbCrLf & _
+              "$folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\ZScaler""" & vbCrLf & _
+              "$sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\ZScaler""" & vbCrLf & _
+              "if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
+              "if (Test-Path $sourceFolderPath -PathType Container) {" & vbCrLf & _
+              "Remove-Item -Path ""$folderPath\*"" -Force" & vbCrLf & _
+              "Get-ChildItem -Path $sourceFolderPath | Copy-Item -Destination $folderPath -Force" & vbCrLf & _
+              "         }" & vbCrLf & _
+              "     }" & vbCrLf & _
               "}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "$rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
