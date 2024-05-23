@@ -377,7 +377,7 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "$rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "$folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\ZScaler""" & vbCrLf & _
-              "$sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\ZScaler""" & vbCrLf & _
+              "$sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\ZScaler4301""" & vbCrLf & _
               "if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
               "if (Test-Path $sourceFolderPath -PathType Container) {" & vbCrLf & _
               "Remove-Item -Path ""$folderPath\*"" -Force" & vbCrLf & _
