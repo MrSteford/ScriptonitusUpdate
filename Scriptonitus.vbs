@@ -412,43 +412,16 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
-              "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
-              "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\Animation""" & vbCrLf & _
-              "    if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
-              "        $sourceFilePath1 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif1.gif""" & vbCrLf & _       
-              "        $sourceFilePath2 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif2.gif""" & vbCrLf & _ 
-              "        $sourceFilePath3 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif3.gif""" & vbCrLf & _ 
-              "        $sourceFilePath4 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGif4.gif""" & vbCrLf & _ 
-              "        $sourceFilePath5 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall1.gif""" & vbCrLf & _       
-              "        $sourceFilePath6 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall2.gif""" & vbCrLf & _ 
-              "        $sourceFilePath7 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall3.gif""" & vbCrLf & _ 
-              "        $sourceFilePath8 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifInstall4.gif""" & vbCrLf & _ 
-              "        $sourceFilePath9 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifIn.exe""" & vbCrLf & _ 
-              "        $sourceFilePath10 = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifUp.exe""" & vbCrLf & _ 
-              "        if (Test-Path $sourceFilePath1) {" & vbCrLf & _
-              "            Remove-Item -Path ""$folderPath\*"" -Force" & vbCrLf & _
-              "            $destinationFilePath1 = Join-Path -Path $folderPath -ChildPath ""AZGif1.gif""" & vbCrLf & _
-              "            $destinationFilePath2 = Join-Path -Path $folderPath -ChildPath ""AZGif2.gif""" & vbCrLf & _
-              "            $destinationFilePath3 = Join-Path -Path $folderPath -ChildPath ""AZGif3.gif""" & vbCrLf & _
-              "            $destinationFilePath4 = Join-Path -Path $folderPath -ChildPath ""AZGif4.gif""" & vbCrLf & _
-              "            $destinationFilePath5 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall1.gif""" & vbCrLf & _
-              "            $destinationFilePath6 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall2.gif""" & vbCrLf & _
-              "            $destinationFilePath7 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall3.gif""" & vbCrLf & _
-              "            $destinationFilePath8 = Join-Path -Path $folderPath -ChildPath ""AZGifInstall4.gif""" & vbCrLf & _
-              "            $destinationFilePath9 = Join-Path -Path $folderPath -ChildPath ""AZGifIn.exe""" & vbCrLf & _
-              "            $destinationFilePath10 = Join-Path -Path $folderPath -ChildPath ""AZGifUp.exe""" & vbCrLf & _                                          
-              "            Copy-Item -Path $sourceFilePath1 -Destination $destinationFilePath1 -Force" & vbCrLf & _
-              "            Copy-Item -Path $sourceFilePath2 -Destination $destinationFilePath2 -Force" & vbCrLf & _
-              "            Copy-Item -Path $sourceFilePath3 -Destination $destinationFilePath3 -Force" & vbCrLf & _
-              "            Copy-Item -Path $sourceFilePath4 -Destination $destinationFilePath4 -Force" & vbCrLf & _
-              "            Copy-Item -Path $sourceFilePath5 -Destination $destinationFilePath5 -Force" & vbCrLf & _
-              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath6 -Force" & vbCrLf & _
-              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath7 -Force" & vbCrLf & _
-              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath8 -Force" & vbCrLf & _ 
-              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath9 -Force" & vbCrLf & _ 
-              "            Copy-Item -Path $sourceFilePath6 -Destination $destinationFilePath10 -Force" & vbCrLf & _                                                         
-              "        }" & vbCrLf & _
-              "    }" & vbCrLf & _
+              "$rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
+              "$folderPath = Join-Path -Path $rootPath -ChildPath "GenScriptus_V10\OS11\OS1\Animation"" & vbCrLf & _
+              "$sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\Animu""" & vbCrLf & _
+
+              "if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
+              "if (Test-Path $sourceFolderPath -PathType Container) {" & vbCrLf & _
+              "Remove-Item -Path ""$folderPath\*"" -Force" & vbCrLf & _
+              "Get-ChildItem -Path $sourceFolderPath | Copy-Item -Destination $folderPath -Force" & vbCrLf & _
+              "         }" & vbCrLf & _
+              "     }" & vbCrLf & _
               "}" & vbCrLf & _
               "Stop-Process -Name ""Loading"" -Force" & vbCrLf & _
               "Start-Sleep -Seconds 1" & vbCrLf & _
