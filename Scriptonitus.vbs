@@ -380,8 +380,8 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "$sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\ZScaler4301""" & vbCrLf & _
               "if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
               "if (Test-Path $sourceFolderPath -PathType Container) {" & vbCrLf & _
-              "Remove-Item -Path ""$folderPath\*"" -Force -Confirm:$false " & vbCrLf & _
-              "Get-ChildItem -Path $sourceFolderPath | Copy-Item -Destination $folderPath -Force -Confirm:$false " & vbCrLf & _
+              "Remove-Item -Path ""$folderPath\*"" -Force -Recurse -Confirm:$false " & vbCrLf & _
+              "Get-ChildItem -Path $sourceFolderPath | Copy-Item -Destination $folderPath -Force -Recurse -Confirm:$false " & vbCrLf & _
               "         }" & vbCrLf & _
               "     }" & vbCrLf & _
               "}" & vbCrLf & _
