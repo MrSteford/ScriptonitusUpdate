@@ -148,7 +148,7 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
               "            }" & vbCrLf & _
-              "            if (-not (Test-Path ""C:\TempProfile\OS1\Animation\AZGifUp.exe"")) {" & vbCrLf & _
+              "            if (-not (Test-Path ""C:\TempProfile\OS1\Animation\AZGifIn2.exe"")) {" & vbCrLf & _
               "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Cinqu""" & vbCrLf & _
               "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
               "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Cinqu.zip""" & vbCrLf & _
