@@ -99,12 +99,12 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "    try {" & vbCrLf & _
               "        $response = $webRequest.EndGetResponse($asyncResult)" & vbCrLf & _
               "        if ($response.StatusCode -eq ""OK"") {" & vbCrLf & _
-              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/NewVersion""" & vbCrLf & _
+              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Main""" & vbCrLf & _
               "            $scriptPath = $PSScriptRoot" & vbCrLf & _
-              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-NewVersion.zip""" & vbCrLf & _
+              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Main.zip""" & vbCrLf & _
               "            Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
               "            Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
-              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-NewVersion""" & vbCrLf & _
+              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Main""" & vbCrLf & _
               "            $destinationFolder = ""C:\TempProfile\OS1\Build_Script""" & vbCrLf & _
               "            Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "            Remove-Item -Path $destination" & vbCrLf & _
@@ -135,20 +135,7 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
               "            }" & vbCrLf & _
-              "            if (-not (Test-Path ""C:\TempProfile\OS1\APP\RP2"")) {" & vbCrLf & _
-              "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/quatros""" & vbCrLf & _
-              "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
-              "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-quatros.zip""" & vbCrLf & _
-              "                        Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
-              "                        Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
-              "                        $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-quatros""" & vbCrLf & _
-              "                        New-Item -Path ""C:\TempProfile\OS1\Build_Script\RP2"" -ItemType Directory -Force" & vbCrLf & _
-              "                        $destinationFolder = ""C:\TempProfile\OS1\Build_Script\RP2""" & vbCrLf & _
-              "                        Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
-              "                        Remove-Item -Path $destination" & vbCrLf & _
-              "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
-              "            }" & vbCrLf & _
-              "            if (-not (Test-Path ""C:\TempProfile\OS1\Animation\AZGifUp.exe"")) {" & vbCrLf & _
+              "            if (-not (Test-Path ""C:\TempProfile\OS1\Animation\AZGifIn.exe"")) {" & vbCrLf & _
               "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Cinqu""" & vbCrLf & _
               "                        $scriptPath = $PSScriptRoot" & vbCrLf & _
               "                        $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Cinqu.zip""" & vbCrLf & _
@@ -160,6 +147,31 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "                        Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "                        Remove-Item -Path $destination" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
+              "            } else {" & vbCrLf & _
+              "                        function Get-FileVersion {" & vbCrLf & _
+              "                            param (" & vbCrLf & _
+              "                               [Parameter(Mandatory = $true)]" & vbCrLf & _
+              "                               [string]$FilePath" & vbCrLf & _
+              "                            )" & vbCrLf & _
+              "                        $versionInfo = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($FilePath)" & vbCrLf & _
+              "                        return $versionInfo.FileVersion" & vbCrLf & _
+              "                        }" & vbCrLf & _
+              "                        $exeFilePath = ""C:\TempProfile\OS1\Animation\Version.exe""" & vbCrLf & _
+              "                        $minimumVersion = [System.Version]::new(""10.6.0.1"")" & vbCrLf & _
+              "                        $fileVersion = Get-FileVersion -FilePath $exeFilePath" & vbCrLf & _
+              "                        if ($fileVersion -lt $minimumVersion) {" & vbCrLf & _
+              "                            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Cinqu""" & vbCrLf & _
+              "                            $scriptPath = $PSScriptRoot" & vbCrLf & _
+              "                            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Cinqu.zip""" & vbCrLf & _
+              "                            Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
+              "                            Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
+              "                            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Cinqu""" & vbCrLf & _
+              "                            New-Item -Path ""C:\TempProfile\OS1\Build_Script\Animu"" -ItemType Directory -Force" & vbCrLf & _
+              "                            $destinationFolder = ""C:\TempProfile\OS1\Build_Script\Animu""" & vbCrLf & _
+              "                            Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
+              "                            Remove-Item -Path $destination" & vbCrLf & _
+              "                            Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
+              "                        }" & vbCrLf & _
               "            }" & vbCrLf & _
               "            if (-not (Test-Path ""C:\TempProfile\OS1\Zscaler\Deploy-Application.exe"")) {" & vbCrLf & _
               "                        $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Cixino""" & vbCrLf & _
