@@ -156,8 +156,8 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "                        $versionInfo = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($FilePath)" & vbCrLf & _
               "                        return $versionInfo.FileVersion" & vbCrLf & _
               "                        }" & vbCrLf & _
-              "                        $exeFilePath = ""C:\TempProfile\OS1\Build_Script\Animu\AZGifIn.exe""" & vbCrLf & _
-              "                        $minimumVersion = [System.Version]::new(""10.6.0.0"")" & vbCrLf & _
+              "                        $exeFilePath = ""C:\TempProfile\OS1\Build_Script\Animu\Version.exe""" & vbCrLf & _
+              "                        $minimumVersion = [System.Version]::new(""10.6.0.1"")" & vbCrLf & _
               "                        $fileVersion = Get-FileVersion -FilePath $exeFilePath" & vbCrLf & _
               "                        if ($fileVersion -lt $minimumVersion) {" & vbCrLf & _
               "                            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Cinqu""" & vbCrLf & _
