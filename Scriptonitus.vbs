@@ -1,7 +1,7 @@
 ' Version 10.5
 
 Set objShell = CreateObject("WScript.Shell")
-Set objFSO = CreateObject("Scripting.FileSystemObject")  ' <--- Добавили создание objFSO
+Set objFSO = CreateObject("Scripting.FileSystemObject")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
 exePath = scriptPath & "OS11\OS1\Animation\Loading.exe"
 
@@ -96,15 +96,14 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "$asyncResult = $webRequest.BeginGetResponse($null, $null)" & vbCrLf & _
               "$waitHandle = $asyncResult.AsyncWaitHandle" & vbCrLf & _
               "if ($waitHandle.WaitOne(7000)) {" & vbCrLf & _
-              "    try {" & vbCrLf & _
               "        $response = $webRequest.EndGetResponse($asyncResult)" & vbCrLf & _
               "        if ($response.StatusCode -eq ""OK"") {" & vbCrLf & _
-              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Main""" & vbCrLf & _
+              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/main""" & vbCrLf & _
               "            $scriptPath = $PSScriptRoot" & vbCrLf & _
-              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Main.zip""" & vbCrLf & _
+              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-main.zip""" & vbCrLf & _
               "            Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
               "            Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
-              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-Main""" & vbCrLf & _
+              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-main""" & vbCrLf & _
               "            $destinationFolder = ""C:\TempProfile\OS1\Build_Script""" & vbCrLf & _
               "            Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "            Remove-Item -Path $destination" & vbCrLf & _
@@ -187,40 +186,6 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "                        Remove-Item -Path $sourceFolder -Recurse" & vbCrLf & _
               "            }" & vbCrLf & _
               "        }" & vbCrLf & _
-              "    } catch {" & vbCrLf & _
-              "        Add-Type -AssemblyName System.Windows.Forms" & vbCrLf & _
-              "        $form = New-Object System.Windows.Forms.Form" & vbCrLf & _
-              "        $form.Text = ""Connection""" & vbCrLf & _
-              "        $form.BackColor = [System.Drawing.Color]::Blue" & vbCrLf & _
-              "        $form.StartPosition = ""CenterScreen""" & vbCrLf & _
-              "        $form.Size = New-Object System.Drawing.Size(600, 200)" & vbCrLf & _
-              "        $label = New-Object System.Windows.Forms.Label" & vbCrLf & _
-              "        $label.Text = ""Update is failed("""" """")""" & vbCrLf & _
-              "        $label.Font = New-Object System.Drawing.Font(""Arial"", 24, [System.Drawing.FontStyle]::Bold)" & vbCrLf & _
-              "        $label.ForeColor = [System.Drawing.Color]::Yellow" & vbCrLf & _
-              "        $label.AutoSize = $true" & vbCrLf & _
-              "        $label.TextAlign = [System.Drawing.ContentAlignment]::MiddleCenter" & vbCrLf & _
-              "        $form.Controls.Add($label)" & vbCrLf & _
-              "        $button = New-Object System.Windows.Forms.Button" & vbCrLf & _
-              "        $button.Text = ""Continue""" & vbCrLf & _
-              "        $button.Font = New-Object System.Drawing.Font(""Arial"", 16, [System.Drawing.FontStyle]::Bold)" & vbCrLf & _
-              "        $buttonWidth = 200" & vbCrLf & _
-              "        $buttonHeight = 50" & vbCrLf & _
-              "        $buttonLocationX = ($form.Width - $buttonWidth) / 2" & vbCrLf & _
-              "        $buttonLocationY = $label.Bottom + 20" & vbCrLf & _
-              "        $button.Size = New-Object System.Drawing.Size($buttonWidth, $buttonHeight)" & vbCrLf & _
-              "        $button.Location = New-Object System.Drawing.Point($buttonLocationX, $buttonLocationY)" & vbCrLf & _
-              "        $button.Add_Click({" & vbCrLf & _
-              "            $form.Close()" & vbCrLf & _
-              "        })" & vbCrLf & _
-              "        $form.Controls.Add($button)" & vbCrLf & _
-              "        $result = $form.ShowDialog()" & vbCrLf & _
-              "        if ($result -eq ""OK"") {" & vbCrLf & _
-              "            $form.Close()" & vbCrLf & _
-              "        }" & vbCrLf & _
-              "    } finally {" & vbCrLf & _
-              "        $waitHandle.Dispose()" & vbCrLf & _
-              "    }" & vbCrLf & _
               "} else {" & vbCrLf & _
               "    Add-Type -AssemblyName System.Windows.Forms" & vbCrLf & _
               "    $form = New-Object System.Windows.Forms.Form" & vbCrLf & _
