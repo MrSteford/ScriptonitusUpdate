@@ -156,7 +156,7 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "                        $versionInfo = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($FilePath)" & vbCrLf & _
               "                        return $versionInfo.FileVersion" & vbCrLf & _
               "                        }" & vbCrLf & _
-              "                        $exeFilePath = ""C:\TempProfile\OS1\Build_Script\Animu\Version.exe""" & vbCrLf & _
+              "                        $exeFilePath = ""C:\TempProfile\OS1\Animation\Version.exe""" & vbCrLf & _
               "                        $minimumVersion = [System.Version]::new(""10.6.0.1"")" & vbCrLf & _
               "                        $fileVersion = Get-FileVersion -FilePath $exeFilePath" & vbCrLf & _
               "                        if ($fileVersion -lt $minimumVersion) {" & vbCrLf & _
