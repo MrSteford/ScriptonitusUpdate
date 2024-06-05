@@ -30,7 +30,7 @@ Else
 		objShell.Run exePath
 	Else
 		' Выводим сообщение об ошибке, если файл не найден
-		MsgBox "Ошибка: Файл AZGifUp.exe не найден."
+		' MsgBox "Ошибка: Файл AZGifUp.exe не найден."
 	End If
 
 	' Возвращаемся в исходную директорию
