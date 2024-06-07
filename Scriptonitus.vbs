@@ -49,16 +49,6 @@ For Each objProcess in colProcesses
     objProcess.Terminate()
 Next
 
-On Error Resume Next 'Игнорируем все ошибки
-
-Set objFSO = CreateObject("Scripting.FileSystemObject")
-
-objFSO.DeleteFolder "C:\TempProfile" 'Удаляем папку
-
-Set objFSO = Nothing 'Освобождаем объект
-
-On Error GoTo 0 'Восстанавливаем обработку ошибок
-
 ' Получаем путь к папке "OS11" рядом с исполняемым файлом
 strScriptPath = objFSO.GetParentFolderName(WScript.ScriptFullName)
 strOS11Path = objFSO.BuildPath(strScriptPath, "OS11")
