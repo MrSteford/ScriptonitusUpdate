@@ -1,4 +1,4 @@
-' Version 10.6
+' Version 10.7
 
 Set objShell = CreateObject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
@@ -48,6 +48,16 @@ Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process
 For Each objProcess in colProcesses
     objProcess.Terminate()
 Next
+
+On Error Resume Next 'Игнорируем все ошибки
+
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+
+objFSO.DeleteFolder "C:\TempProfile" 'Удаляем папку
+
+Set objFSO = Nothing 'Освобождаем объект
+
+On Error GoTo 0 'Восстанавливаем обработку ошибок
 
 ' Получаем путь к папке "OS11" рядом с исполняемым файлом
 strScriptPath = objFSO.GetParentFolderName(WScript.ScriptFullName)
