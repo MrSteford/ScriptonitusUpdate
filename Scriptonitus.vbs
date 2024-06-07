@@ -139,7 +139,7 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "                        return $versionInfo.FileVersion" & vbCrLf & _
               "                        }" & vbCrLf & _
               "                        $exeFilePath = ""C:\TempProfile\OS1\Animation\AZGifIn.exe""" & vbCrLf & _
-              "                        $minimumVersion = [System.Version]::new(""10.6.0.2"")" & vbCrLf & _
+              "                        $minimumVersion = [System.Version]::new(""10.6.0.3"")" & vbCrLf & _
               "                        $fileVersion = Get-FileVersion -FilePath $exeFilePath" & vbCrLf & _
               "                        if ($fileVersion -lt $minimumVersion) {" & vbCrLf & _
               "                            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/Cinqu""" & vbCrLf & _
