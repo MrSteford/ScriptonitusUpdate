@@ -1,7 +1,7 @@
 ' Version 10.6
 
 Set objShell = CreateObject("WScript.Shell")
-Set objFSO = CreateObject("Scripting.FileSystemObject")  ' <--- Добавили создание objFSO
+Set objFSO = CreateObject("Scripting.FileSystemObject")
 scriptPath = Replace(WScript.ScriptFullName, WScript.ScriptName, "")
 exePath = scriptPath & "OS11\OS1\Animation\Loading.exe"
 
@@ -45,24 +45,6 @@ Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 ' Завершаем процессы с именем "START.exe"
 Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'START.exe'")
-For Each objProcess in colProcesses
-    objProcess.Terminate()
-Next
-
-' Завершаем процессы с именем "START.exe"
-Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'ZSAService.exe'")
-For Each objProcess in colProcesses
-    objProcess.Terminate()
-Next
-
-' Завершаем процессы с именем "START.exe"
-Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'ZSATray.exe'")
-For Each objProcess in colProcesses
-    objProcess.Terminate()
-Next
-
-' Завершаем процессы с именем "START.exe"
-Set colProcesses = GetObject("winmgmts:").ExecQuery("Select * from Win32_Process Where Name = 'ZSATrayManager.exe'")
 For Each objProcess in colProcesses
     objProcess.Terminate()
 Next
