@@ -356,19 +356,6 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
-              "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
-              "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\Office""" & vbCrLf & _
-              "    " & vbCrLf & _
-              "    if (Test-Path $folderPath -PathType Container) {" & vbCrLf & _
-              "        $destinationFilePath = Join-Path -Path $folderPath -ChildPath ""StartBAT.vbs""" & vbCrLf & _
-              "        " & vbCrLf & _
-              "        if (-not (Test-Path $destinationFilePath -PathType Leaf)) {" & vbCrLf & _
-              "            $sourceFilePath = ""C:\TempProfile\OS1\Build_Script\StartBAT.vbs""" & vbCrLf & _
-              "            Copy-Item -Path $sourceFilePath -Destination $destinationFilePath -Force" & vbCrLf & _
-              "        }" & vbCrLf & _
-              "    }" & vbCrLf & _
-              "}" & vbCrLf & _
-              "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "$rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "$folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11\OS1\ZScaler""" & vbCrLf & _
               "$sourceFolderPath = ""C:\TempProfile\OS1\Build_Script\ZScaler4301""" & vbCrLf & _
