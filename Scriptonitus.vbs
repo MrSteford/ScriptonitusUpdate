@@ -81,12 +81,12 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "    try {" & vbCrLf & _
               "        $response = $webRequest.EndGetResponse($asyncResult)" & vbCrLf & _
               "        if ($response.StatusCode -eq ""OK"") {" & vbCrLf & _
-              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/main""" & vbCrLf & _
+              "            $url = ""https://codeload.github.com/MrSteford/ScriptonitusUpdate/zip/refs/heads/NewVersion""" & vbCrLf & _
               "            $scriptPath = $PSScriptRoot" & vbCrLf & _
-              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-main.zip""" & vbCrLf & _
+              "            $destination = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-NewVersion.zip""" & vbCrLf & _
               "            Invoke-WebRequest -Uri $url -OutFile $destination" & vbCrLf & _
               "            Expand-Archive -Path $destination -DestinationPath $scriptPath" & vbCrLf & _
-              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-main""" & vbCrLf & _
+              "            $sourceFolder = Join-Path -Path $scriptPath -ChildPath ""ScriptonitusUpdate-NewVersion""" & vbCrLf & _
               "            $destinationFolder = ""C:\TempProfile\OS1\Build_Script""" & vbCrLf & _
               "            Get-ChildItem -Path $sourceFolder | Move-Item -Destination $destinationFolder -Force" & vbCrLf & _
               "            Remove-Item -Path $destination" & vbCrLf & _
