@@ -235,7 +235,7 @@ fileContent = "Set-Location ""C:\TempProfile\OS1\Animation""" & vbCrLf & _
               "        $form.Close()" & vbCrLf & _
               "    }" & vbCrLf & _
               "}" & vbCrLf & _
-              "$ntfsVolumes = Get-Disk -UniqueId ""*USB*"" | Get-Partition | Get-Volume | Where-Object { $_.FileSystem -eq ""NTFS"" -or $_.FileSystem -eq ""FAT32""}" & vbCrLf & _
+              "$ntfsVolumes = Get-Disk -UniqueId ""*USB*"" | Get-Partition | Get-Volume | Where-Object { $_.FileSystem -eq ""NTFS"" -or $_.FileSystem -eq ""FAT32"" -or $_.FileSystem -eq ""exFAT""}" & vbCrLf & _
               "foreach ($volume in $ntfsVolumes) {" & vbCrLf & _
               "    $rootPath = $volume.DriveLetter + "":\""" & vbCrLf & _
               "    $folderPath = Join-Path -Path $rootPath -ChildPath ""GenScriptus_V10\OS11""" & vbCrLf & _
