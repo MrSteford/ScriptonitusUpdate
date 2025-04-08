@@ -71,5 +71,5 @@
 
 <img src="https://i.postimg.cc/s2rFkKQN/3.jpg" alt="">
 
-<img src="https://i.postimg.cc/WbNwHZ1w/41.jpg" alt=""> 
-<img src="https://i.postimg.cc/mD4HFxcy/42.jpg" alt="">
+<img src="https://i.postimg.cc/3NzBV8JQ/41.jpg" alt=""> 
+<img src="https://i.postimg.cc/xdFtM3Dd/42.jpg" alt="">
