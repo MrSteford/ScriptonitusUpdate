@@ -2,7 +2,7 @@
   <img src="https://i.postimg.cc/K8ZcLZQz/AZGif3.gif" alt="center" width="400" height="auto">
 </p>
 <h1 align="center">Scriptonitus V10 Update</h1>
-<p align="center"><a href="#key-features">Key Features</a> - <a href="#how-it-works">How it works</a> - <a href="#technology-stack">Technology Stack</a></p>
+<p align="center"><a href="#key-features">Key Features</a> - <a href="#how-it-works">How it works</a> - <a href="#using">Using</a> - <a href="#key-components">Key components</a> - <a href="#technology-stack">Technology Stack</a></p>
 
 <p align="left">
   <img src="https://i.postimg.cc/d0fJzGFk/AZGif-Install1.gif" alt="" width="200" height="auto">
@@ -49,14 +49,14 @@
 4.  **Завершение:** Скрипт ожидает сигнала от `General.exe` (через файл `2PRT.txt`), проводит очистку временных папок и, если пользователь согласился, выключает компьютер (через проверку файла `Off.txt`).
 5.
 
-## Использование
+## Using
 
 1.  Разместите скрипт и папку `OS11` в корневой директории (например, на USB-накопителе).
 2.  Убедитесь, что необходимые исполняемые файлы (CrystalDiskInfo, инсталляторы ПО) находятся в правильных подпапках внутри `OS11`.
 3.  Запустите основной VBScript (`Scriptonitus.vbs`)
 4.  Следуйте инструкциям на экране
 
-## Ключевые компоненты
+## Key components
 
 *   ОС Windows (10/11) с правами Администратора.
 *   PowerShell (рекомендуется v5.1 или новее).
@@ -64,7 +64,7 @@
 *   Начальная структура папок (папка `OS11` рядом с запускающим VBS).
 *   CrystalDiskInfo (`DiskInfo64.exe`) в `C:\TempProfile\OS1\APP\CD` для проверки диска.
 
-## Технологический Стек
+## Technology Stack
 
 <img src="https://i.postimg.cc/ncWpPvGy/1.jpg" alt="">
 
