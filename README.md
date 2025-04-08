@@ -1,11 +1,16 @@
-<img src="https://i.postimg.cc/K8ZcLZQz/AZGif3.gif" alt="" align="center" width="500" height="auto"><h1 align="center">Scriptonitus V10 Update</h1>
-<p align="center"><a href="#project-description">Project Description</a> - <a href="#key-features">Key Features</a> - <a href="#technology-stack">Tech Stack</a></p>
+<p align="center">
+  <img src="https://i.postimg.cc/K8ZcLZQz/AZGif3.gif" alt="center" width="400" height="auto">
+</p>
+<h1 align="center">Scriptonitus V10 Update</h1>
+<p align="center"><a href="#project-description">Описание проекта</a> - <a href="#key-features">Будщие обновы</a> - <a href="#technology-stack">Технологический Стек</a></p>
 
-<img src="https://i.postimg.cc/d0fJzGFk/AZGif-Install1.gif" alt="" align="center" width="200" height="auto">
+<p align="left">
+  <img src="https://i.postimg.cc/d0fJzGFk/AZGif-Install1.gif" alt="" width="200" height="auto">
+</p>
 
-## Project Description
+## Описание проекта
 
-# Scriptonitus - Помощник Автоматизированной Настройки Windows
+# Scriptonitus - Помощник AZ Автоматизированной Настройки Windows
 
 Это набор VBScript и PowerShell скриптов, предназначенный для автоматизации процесса настройки, конфигурации и обновления окружения Windows. Он ориентирован на сценарии развертывания или первичной настройки рабочих станций.
 
@@ -28,7 +33,7 @@
     *   Предлагает пользователю проверить Камеру, Звук и Микрофон через соответствующие системные приложения.
     *   Запрашивает подтверждение перед возможным выключением компьютера.
 
-## Как это работает (Обзор)
+## Как это работает
 
 1.  **Инициация (VBS):** Запуск начинается с VBScript (`Scriptonitus.vbs`). Он показывает анимацию, копирует рабочую папку `OS11` в `C:\TempProfile`, завершает старые процессы `START.exe` и запускает `START.exe` из `C:\TempProfile`. Также динамически создает скрипт `Update.ps1`.
 2.  **Обновление (`Update.ps1`):** Этот PowerShell скрипт (запускаемый, вероятно, через `START.exe`) проверяет интернет, скачивает обновления с GitHub для основного скрипта и компонентов, обновляет файлы на USB-накопителях в папке `GenScriptus_V10`.
@@ -51,7 +56,7 @@
 3.  Запустите основной VBScript (`Scriptonitus.vbs`)
 4.  Следуйте инструкциям на экране
 
-## Key Components
+## Ключевые компоненты
 
 *   ОС Windows (10/11) с правами Администратора.
 *   PowerShell (рекомендуется v5.1 или новее).
@@ -59,9 +64,7 @@
 *   Начальная структура папок (папка `OS11` рядом с запускающим VBS).
 *   CrystalDiskInfo (`DiskInfo64.exe`) в `C:\TempProfile\OS1\APP\CD` для проверки диска.
 
-## Key Features
-
-## Tech Stack
+## Технологический Стек
 
 <img src="https://i.postimg.cc/ncWpPvGy/1.jpg" alt="">
 
