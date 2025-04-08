@@ -1,7 +1,7 @@
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/512px-YouTube_full-color_icon_%282017%29.svg.png" alt="" align="center" width="225" height="150"><h1 align="center">Scriptonitus V10</h1>
+<img src="https://i.postimg.cc/K8ZcLZQz/AZGif3.gif" alt="" align="center" width="500" height="100"><h1 align="center">Scriptonitus V10 Update</h1>
 <p align="center"><a href="#project-description">Project Description</a> - <a href="#key-features">Key Features</a> - <a href="#technology-stack">Tech Stack</a></p>
 
-<img src="https://repolaunch.vercel.app/assets/img/yt.webp" alt="" align="center" width="auto" height="auto">
+<img src="https://i.postimg.cc/d0fJzGFk/AZGif-Install1.gif" alt="" align="center" width="200" height="auto">
 
 ## Project Description
 
@@ -63,7 +63,11 @@
 
 ## Tech Stack
 
-**Frontend**: React, Tailwind CSS, Redux  
-**Backend**: Node.js, Express, MongoDB  
-**Cloud & DevOps**: AWS (S3, CloudFront), Docker  
-**Other**: OAuth2.0, WebSockets
+<img src="https://i.postimg.cc/ncWpPvGy/1.jpg" alt="">
+
+<img src="https://i.postimg.cc/05WszpFz/2.jpg" alt="">
+
+<img src="https://i.postimg.cc/s2rFkKQN/3.jpg" alt="">
+
+<img src="https://i.postimg.cc/WbNwHZ1w/41.jpg" alt=""> 
+<img src="https://i.postimg.cc/mD4HFxcy/42.jpg" alt="">
