@@ -2,7 +2,7 @@
   <img src="https://i.postimg.cc/K8ZcLZQz/AZGif3.gif" alt="center" width="400" height="auto">
 </p>
 <h1 align="center">Scriptonitus V10 Update</h1>
-<p align="center"><a href="#project-description">Project Description</a> - <a href="#key-features">Key Features</a> - <a href="#technology-stack">Технологический Стек</a></p>
+<p align="center"><a href="#key-features">Key Features</a> - <a href="#how-it-works">How it works</a> - <a href="#technology-stack">Technology Stack</a></p>
 
 <p align="left">
   <img src="https://i.postimg.cc/d0fJzGFk/AZGif-Install1.gif" alt="" width="200" height="auto">
@@ -14,7 +14,7 @@
 
 Это набор VBScript и PowerShell скриптов, предназначенный для автоматизации процесса настройки, конфигурации и обновления окружения Windows. Он ориентирован на сценарии развертывания или первичной настройки рабочих станций.
 
-## Основные Возможности
+## Key Features
 
 *   **Автоматическая Установка ПО:** Устанавливает и настраивает Zscaler, Microsoft Office по желанию (включая языковой пакет RU), Barco ClickShare, Zoom и специфичные драйверы Lenovo (Hotkey Features Integration).
 *   **Конфигурация Системы:**
@@ -33,7 +33,7 @@
     *   Предлагает пользователю проверить Камеру, Звук и Микрофон через соответствующие системные приложения.
     *   Запрашивает подтверждение перед возможным выключением компьютера.
 
-## Как это работает
+## How it works
 
 1.  **Инициация (VBS):** Запуск начинается с VBScript (`Scriptonitus.vbs`). Он показывает анимацию, копирует рабочую папку `OS11` в `C:\TempProfile`, завершает старые процессы `START.exe` и запускает `START.exe` из `C:\TempProfile`. Также динамически создает скрипт `Update.ps1`.
 2.  **Обновление (`Update.ps1`):** Этот PowerShell скрипт (запускаемый, вероятно, через `START.exe`) проверяет интернет, скачивает обновления с GitHub для основного скрипта и компонентов, обновляет файлы на USB-накопителях в папке `GenScriptus_V10`.
