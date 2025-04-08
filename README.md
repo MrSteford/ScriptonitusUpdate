@@ -63,11 +63,7 @@
 
 ## Tech Stack
 
-<img src="https://i.postimg.cc/ncWpPvGy/1.jpg" alt="">
-
-<img src="https://i.postimg.cc/05WszpFz/2.jpg" alt="">
-
-<img src="https://i.postimg.cc/s2rFkKQN/3.jpg" alt="">
-
-<img src="https://i.postimg.cc/WbNwHZ1w/41.jpg" alt=""> 
-<img src="https://i.postimg.cc/mD4HFxcy/42.jpg" alt="">
+**Frontend**: React, Tailwind CSS, Redux  
+**Backend**: Node.js, Express, MongoDB  
+**Cloud & DevOps**: AWS (S3, CloudFront), Docker  
+**Other**: OAuth2.0, WebSockets
