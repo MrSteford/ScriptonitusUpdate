@@ -1,4 +1,5 @@
 <img src="https://i.postimg.cc/K8ZcLZQz/AZGif3.gif" alt="" align="center" width="500" height="auto"><h1 align="center">Scriptonitus V10 Update</h1>
+## Scriptonitus V10 Update
 <p align="center"><a href="#project-description">Project Description</a> - <a href="#key-features">Key Features</a> - <a href="#technology-stack">Tech Stack</a></p>
 
 <img src="https://i.postimg.cc/d0fJzGFk/AZGif-Install1.gif" alt="" align="center" width="200" height="auto">
