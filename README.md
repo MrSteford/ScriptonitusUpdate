@@ -2,13 +2,13 @@
   <img src="https://i.postimg.cc/K8ZcLZQz/AZGif3.gif" alt="center" width="400" height="auto">
 </p>
 <h1 align="center">Scriptonitus V10 Update</h1>
-<p align="center"><a href="#project-description">Описание проекта</a> - <a href="#key-features">Будщие обновы</a> - <a href="#technology-stack">Технологический Стек</a></p>
+<p align="center"><a href="#project-description">Project Description</a> - <a href="#key-features">Key Features</a> - <a href="#technology-stack">Технологический Стек</a></p>
 
 <p align="left">
   <img src="https://i.postimg.cc/d0fJzGFk/AZGif-Install1.gif" alt="" width="200" height="auto">
 </p>
 
-## Описание проекта
+## Project Description
 
 # Scriptonitus - Помощник AZ Автоматизированной Настройки Windows
 
