@@ -14,8 +14,7 @@
 
 Это набор VBScript и PowerShell скриптов, предназначенный для автоматизации процесса настройки, конфигурации и обновления окружения Windows. Он ориентирован на сценарии развертывания или первичной настройки рабочих станций.
 
-Код проекта вы можете узреть ниже
-Check out my code: [My Gist](https://gist.github.com/MrSteford/f1495852f4a05d47489b5c5c6ab27b76)
+Код проекта вы можете узреть ниже: [My Gist](https://gist.github.com/MrSteford/f1495852f4a05d47489b5c5c6ab27b76)
 
 ## Key Features
 
