@@ -8,14 +8,14 @@
   <img src="https://i.postimg.cc/d0fJzGFk/AZGif-Install1.gif" alt="" width="200" height="auto">
 </p>
 
-
-<script src="https://gist.github.com/MrSteford/f1495852f4a05d47489b5c5c6ab27b76.js"></script>
-
 ## Project Description
 
 # Scriptonitus - Помощник AZ Автоматизированной Настройки Windows
 
 Это набор VBScript и PowerShell скриптов, предназначенный для автоматизации процесса настройки, конфигурации и обновления окружения Windows. Он ориентирован на сценарии развертывания или первичной настройки рабочих станций.
+
+Код проекта вы можете узреть ниже
+Check out my code: [My Gist](https://gist.github.com/MrSteford/f1495852f4a05d47489b5c5c6ab27b76)
 
 ## Key Features
 
